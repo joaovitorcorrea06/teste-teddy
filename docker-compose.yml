@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  empresas:
+    build:
+      context: ./empresas
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    environment:
+      - NODE_ENV=development
+
+  home:
+    build:
+      context: ./home
+      dockerfile: Dockerfile
+    ports:
+      - "3001:80"
+
+  login:
+    build:
+      context: ./login
+      dockerfile: Dockerfile
+    ports:
+      - "3002:80"
+
+  main:
+    build:
+      context: ./main
+      dockerfile: Dockerfile
+    ports:
+      - "3003:80"
+
+  parceiros:
+    build:
+      context: ./parceiros
+      dockerfile: Dockerfile
+    ports:
+      - "3004:80"
+
+  sobre:
+    build:
+      context: ./sobre
+      dockerfile: Dockerfile
+    ports:
+      - "3005:80"
