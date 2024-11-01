@@ -21,21 +21,19 @@ Teste Teddy
 
 Certifique-se de ter as seguintes ferramentas instaladas:
 
-- [Node.js](https://nodejs.org/) (versão X.X.X ou superior)
+- [Node.js](https://nodejs.org/)
 - [npm](https://www.npmjs.com/) (geralmente instalado junto com o Node.js)
 
 ## Instalação
 
-1. Clone o repositório:
+- Clone o repositório:
 git clone https://github.com/joaovitorcorrea06/teste-teddy
-2. Instale as dependências do projeto na raiz com o comando:
+- Instale as dependências do projeto na raiz com o comando:
 npm install-all
 
 ## Executando o Projeto
 Para iniciar o projeto, na raiz utilize o comando:
-npm start
-
-Este comando executará o projeto
+-npm start
 
 ##  Estrutura do Projeto
 A estrutura do projeto está organizada em microfrontends. Abaixo está uma breve descrição de cada módulo:
