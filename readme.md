@@ -27,13 +27,17 @@ Certifique-se de ter as seguintes ferramentas instaladas:
 ## Instalação
 
 - Clone o repositório:
+
 git clone https://github.com/joaovitorcorrea06/teste-teddy
+
 - Instale as dependências do projeto na raiz com o comando:
+
 npm install-all
 
 ## Executando o Projeto
 Para iniciar o projeto, na raiz utilize o comando:
--npm start
+
+npm start
 
 ##  Estrutura do Projeto
 A estrutura do projeto está organizada em microfrontends. Abaixo está uma breve descrição de cada módulo:
