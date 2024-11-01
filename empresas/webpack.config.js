@@ -9,7 +9,7 @@ const printCompilationMessage = require('./compilation.config.js');
 
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:5000/",
+    publicPath: "http://localhost:5005/",
   },
 
   resolve: {
@@ -17,7 +17,7 @@ module.exports = (_, argv) => ({
   },
 
   devServer: {
-    port: 5000,
+    port: 5005,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, 'src')],
     onListening: function (devServer) {
@@ -62,16 +62,13 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "main",
+      name: "empresas",
       filename: "remoteEntry.js",
-      remotes: {
-        login: 'login@http://localhost:5001/remoteEntry.js',
-        home: 'home@http://localhost:5002/remoteEntry.js',
-        parceiros: 'parceiros@http://localhost:5003/remoteEntry.js',
-        sobre: 'sobre@http://localhost:5004/remoteEntry.js',
-        empresas: 'empresas@http://localhost:5005/remoteEntry.js',
+      remotes: {},
+      exposes: {
+        './Empresas': './src/Empresas.jsx',
+        "./style": "./src/index.scss"
       },
-      exposes: {},
       shared: {
         ...deps,
         react: {

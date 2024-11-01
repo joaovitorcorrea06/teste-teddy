@@ -30,8 +30,8 @@ const FormPartner = ({ addPartner, isEditing, currentPartner, editPartner }) => 
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-8 bg-white shadow-lg p-6 rounded-lg">
-      <h2 className="text-2xl font-bold mb-4">
+    <form onSubmit={handleSubmit} className="mb-8 bg-white  p-6 ">
+      <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">
         {isEditing ? "Editar Parceiro" : "Adicionar Novo Parceiro"}
       </h2>
       <div className="mb-4">
@@ -41,17 +41,17 @@ const FormPartner = ({ addPartner, isEditing, currentPartner, editPartner }) => 
           placeholder="Nome"
           value={form.name}
           onChange={handleInputChange}
-          className="w-full p-2 border border-gray-300 rounded"
+          className="text-sm w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
       <div className="mb-4">
-        <input
-          type="text"
+        <textarea
           name="description"
           placeholder="Descrição"
           value={form.description}
           onChange={handleInputChange}
-          className="w-full p-2 border border-gray-300 rounded"
+          className=" text-sm w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          rows="3"
         />
       </div>
       <div className="mb-4">
@@ -61,7 +61,7 @@ const FormPartner = ({ addPartner, isEditing, currentPartner, editPartner }) => 
           placeholder="Repositório Git"
           value={form.repositoryGit}
           onChange={handleInputChange}
-          className="w-full p-2 border border-gray-300 rounded"
+          className="text-sm w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
       <div className="mb-4">
@@ -71,10 +71,13 @@ const FormPartner = ({ addPartner, isEditing, currentPartner, editPartner }) => 
           placeholder="URL da Documentação"
           value={form.urlDoc}
           onChange={handleInputChange}
-          className="w-full p-2 border border-gray-300 rounded"
+          className="text-sm w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
-      <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded">
+      <button
+        type="submit"
+        className="text-sm w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-200"
+      >
         {isEditing ? "Atualizar Parceiro" : "Adicionar Parceiro"}
       </button>
     </form>

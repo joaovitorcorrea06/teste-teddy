@@ -11,6 +11,7 @@ import Login from 'login/Login';
 import Home from 'home/Home';
 import Partner from 'parceiros/Partner';
 import Sobre from 'sobre/Sobre';
+import Empresas from 'empresas/Empresas';
 
 // Componente de Menu Lateral
 const Sidebar = () => (
@@ -23,7 +24,7 @@ const Sidebar = () => (
 
       <li><a href="/sobre">Sobre a aplicação</a></li>
 
-      <li><a href="/home">Empresas</a></li>
+      <li><a href="/empresas">Empresas</a></li>
 
       <li><a href="/login">Sair</a></li>
       {/* Adicione mais links conforme necessário */}
@@ -47,6 +48,7 @@ const AppLayout = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/parceiros" element={<Partner />} />
           <Route path="/sobre" element={<Sobre />} />
+          <Route path="/empresas" element={<Empresas />} />
 
           {/* Rota padrão para redirecionar ao login */}
           <Route path="*" element={<Navigate to="/login" />} />

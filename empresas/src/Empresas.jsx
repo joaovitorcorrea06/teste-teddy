@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import PartnerList from './Components/ListPartner';
-import FormPartner from './Components/FormPartner';
+import EmpresasList from './Components/ListEmpresas';
+import FormEmpresas from './Components/FormEmpresas';
 
-const Partners = () => {
-  const [partners, setPartners] = useState([]);
+const Empresas = () => {
+  const [empresas, setEmpresas] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
-  const [currentPartner, setCurrentPartner] = useState(null);
+  const [currentEmpresa, setCurrentEmpresa] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const partnersPerPage = 10;
+  const itemsPerPage = 10;
 
   useEffect(() => {
     const page = new URLSearchParams(window.location.search).get('page');
@@ -18,40 +18,41 @@ const Partners = () => {
   }, []);
 
   useEffect(() => {
-    fetch("https://644060ba792fe886a88de1b9.mockapi.io/v1/test/partners")
+    fetch("https://655cf25525b76d9884fe3153.mockapi.io/v1/external-companies")
       .then((response) => response.json())
-      .then((data) => setPartners(data))
+      .then((data) => setEmpresas(data))
       .catch((error) => console.error("Erro ao buscar parceiros:", error));
   }, []);
 
-  const addPartner = (newPartner) => {
-    fetch("https://644060ba792fe886a88de1b9.mockapi.io/v1/test/partners", {
+  const addEmpresa = (newEmpresa) => {
+    fetch("https://655cf25525b76d9884fe3153.mockapi.io/v1/external-companies", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newPartner),
+      body: JSON.stringify(newEmpresa),
     })
       .then((response) => response.json())
       .then((data) => {
-        setPartners([...partners, data]);
+        setEmpresas([...empresas, data]);
         closeModal();
       })
       .catch((error) => console.error("Erro ao adicionar parceiro:", error));
   };
 
-  const editPartner = (updatedPartner) => {
-    fetch(`https://644060ba792fe886a88de1b9.mockapi.io/v1/test/partners/${updatedPartner.id}`, {
+  const editEmpresa = (updatedEmpresa) => {
+    console.log(updatedEmpresa)
+    fetch(`https://655cf25525b76d9884fe3153.mockapi.io/v1/external-companies/${updatedEmpresa.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(updatedPartner),
+      body: JSON.stringify(updatedEmpresa),
     })
       .then((response) => response.json())
       .then((data) => {
-        setPartners(partners.map((partner) =>
-          partner.id === data.id ? data : partner
+        setEmpresas(empresas.map((empresa) =>
+          empresa.id === data.id ? data : empresa
         ));
         setIsEditing(false);
         closeModal();
@@ -59,18 +60,18 @@ const Partners = () => {
       .catch((error) => console.error("Erro ao atualizar parceiro:", error));
   };
 
-  const handleEdit = (partner) => {
-    setCurrentPartner(partner);
+  const handleEdit = (empresa) => {
+    setCurrentEmpresa(empresa);
     setIsEditing(true);
     openModal();
   };
 
-  const handleDelete = (partnerId) => {
-    fetch(`https://644060ba792fe886a88de1b9.mockapi.io/v1/test/partners/${partnerId}`, {
+  const handleDelete = (empresaId) => {
+    fetch(`https://655cf25525b76d9884fe3153.mockapi.io/v1/external-companies/${empresaId}`, {
       method: "DELETE",
     })
       .then(() => {
-        setPartners(partners.filter(partner => partner.id !== partnerId));
+        setEmpresas(empresas.filter(empresa => empresa.id !== empresaId));
       })
       .catch((error) => console.error("Erro ao excluir parceiro:", error));
   };
@@ -81,14 +82,14 @@ const Partners = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
-    setCurrentPartner(null);
+    setCurrentEmpresa(null);
     setIsEditing(false);
   };
 
   // Lógica de paginação
-  const indexOfLastPartner = currentPage * partnersPerPage;
-  const indexOfFirstPartner = indexOfLastPartner - partnersPerPage;
-  const currentPartners = partners.slice(indexOfFirstPartner, indexOfLastPartner);
+  const indexOfLastPartner = currentPage * itemsPerPage;
+  const indexOfFirstPartner = indexOfLastPartner - itemsPerPage;
+  const currentPartners = empresas.slice(indexOfFirstPartner, indexOfLastPartner);
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -97,25 +98,25 @@ const Partners = () => {
   };
 
   // Calcular o número total de páginas
-  const totalPages = Math.ceil(partners.length / partnersPerPage);
+  const totalPages = Math.ceil(empresas.length / itemsPerPage);
 
   return (
     <div className="mt-10 text-3xl mx-auto max-w-h px-20">
-      <h1 className="text-4xl font-bold mb-8 text-center">Gerenciamento de Parceiros</h1>
+      <h1 className="text-4xl font-bold mb-8 text-center">Gerenciamento de Empresas</h1>
 
       <button onClick={openModal} className="bg-green-500 text-white py-2 px-4 rounded mb-4 text-sm">
-        Adicionar Novo Parceiro
+        Adicionar Nova Empresa
       </button>
 
       {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-7xl w-full">
-            <FormPartner
-              addPartner={addPartner}
+            <FormEmpresas
+              addPartner={addEmpresa}
               isEditing={isEditing}
-              currentPartner={currentPartner}
-              editPartner={editPartner}
+              currentEmpresa={currentEmpresa}
+              editEmpresa={editEmpresa}
             />
             <button
               onClick={closeModal}
@@ -128,7 +129,7 @@ const Partners = () => {
       )}
 
       {/* Lista de parceiros com paginação */}
-      <PartnerList partners={currentPartners} onEdit={handleEdit} onDelete={handleDelete} />
+      <EmpresasList partners={currentPartners} onEdit={handleEdit} onDelete={handleDelete} />
 
       {/* Paginação */}
       <div className="flex justify-center mt-4">
@@ -146,4 +147,4 @@ const Partners = () => {
   );
 }
 
-export default Partners;
+export default Empresas;
