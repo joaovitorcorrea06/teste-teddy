@@ -51,7 +51,7 @@ const FormEmpresas = ({ addPartner, isEditing, currentEmpresa, editEmpresa }) =>
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-8 bg-white p-6 rounded-lg shadow-md">
+    <form onSubmit={handleSubmit} className="mb-8 bg-white p-6 rounded-lg ">
       <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">
         {isEditing ? "Editar Empresa" : "Adicionar Nova Empresa"}
       </h2>
@@ -85,8 +85,9 @@ const FormEmpresas = ({ addPartner, isEditing, currentEmpresa, editEmpresa }) =>
           onChange={handleInputChange}
           className="mr-2"
         />
-        <label className="text-sm text-gray-700">Ativo</label>
+        <label className="text-sm text-gray-700 ml-4">Ativo</label>
       </div>
+
       <div className="mb-4">
         <input
           type="date" // Alterado para tipo date

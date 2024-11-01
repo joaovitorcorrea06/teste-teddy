@@ -6,31 +6,18 @@ import "./index.scss";
 
 import "parceiros/style"
 import "sobre/style"
+import "home/style"
+import "login/style"
 
 import Login from 'login/Login';
 import Home from 'home/Home';
 import Partner from 'parceiros/Partner';
 import Sobre from 'sobre/Sobre';
 import Empresas from 'empresas/Empresas';
+import Sidebar from './Sidebar';
 
 // Componente de Menu Lateral
-const Sidebar = () => (
-  <div className="sidebar w-1/4 p-5 bg-gray-100 min-h-screen">
-    <h2 className="text-2xl font-bold mb-5">Menu Lateral</h2>
-    <ul>
-      <li><a href="/home">Home</a></li>
 
-      <li><a href="/parceiros">Parceiros</a></li>
-
-      <li><a href="/sobre">Sobre a aplicação</a></li>
-
-      <li><a href="/empresas">Empresas</a></li>
-
-      <li><a href="/login">Sair</a></li>
-      {/* Adicione mais links conforme necessário */}
-    </ul>
-  </div>
-);
 
 // Componente principal da aplicação
 const AppLayout = () => {
