@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "npm run build:all",
-    "build:all": "concurrently \"cd empresas && npm run build\" \"cd home && npm run build\" \"cd login && npm run build\" \"cd main && npm run build\" \"cd parceiros && npm run build\" \"cd sobre && npm run build\"",
+"build:all": "npx concurrently \"cd empresas && npm run build\" \"cd home && npm run build\" \"cd login && npm run build\" \"cd main && npm run build\" \"cd parceiros && npm run build\" \"cd sobre && npm run build\"",
     "start": "concurrently \"cd empresas && npm start\" \"cd home && npm start\" \"cd login && npm start\" \"cd main && npm start\" \"cd parceiros && npm start\" \"cd sobre && npm start\"",
     "install-all": "concurrently \"cd empresas && npm i\" \"cd home && npm i\" \"cd login && npm i\" \"cd main && npm i\" \"cd parceiros && npm i\" \"cd sobre && npm i\" \"npm i\""
   },
