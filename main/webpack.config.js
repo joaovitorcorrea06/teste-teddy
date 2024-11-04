@@ -8,8 +8,12 @@ const deps = require("./package.json").dependencies;
 const printCompilationMessage = require('./compilation.config.js');
 
 module.exports = (_, argv) => ({
+  // output: {
+  //   publicPath: "http://localhost:5000/",
+  // },
   output: {
-    publicPath: "http://localhost:5000/",
+    path: path.resolve(__dirname, 'build'), // Alterar para 'build'
+    filename: 'bundle.js', // Ou outro nome que você desejar
   },
 
   resolve: {
