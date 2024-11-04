@@ -101,7 +101,7 @@ const Empresas = () => {
   const totalPages = Math.ceil(empresas.length / itemsPerPage);
 
   return (
-    <div className="mt-10 text-3xl mx-auto max-w-h px-20">
+    <div className="pt-10 mt-10 px-4 sm:px-10 lg:px-20 lg:ml-64">
       <h1 className="text-4xl font-bold mb-8 text-center">Gerenciamento de Empresas</h1>
 
       <button onClick={openModal} className="bg-green-500 text-white py-2 px-4 rounded mb-4 text-sm">
