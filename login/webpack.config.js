@@ -11,7 +11,7 @@ module.exports = (_, argv) => ({
   // output: {
   // },
   output: {
-    path: path.resolve(__dirname, 'build'), // Alterar para 'build'
+    path: path.resolve(__dirname, '../dist'), // Alterar para 'build'
     filename: 'bundle.js', // Ou outro nome que você desejar
     publicPath: "http://localhost:5001/",
   },
