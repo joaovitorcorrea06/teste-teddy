@@ -47,9 +47,14 @@ npm start
 A estrutura do projeto está organizada em microfrontends. Abaixo está uma breve descrição de cada módulo:
 
 main: Componente principal que gerencia o roteamento.
+
 home: Página inicial com informações resumidas.
+
 login: Página de login para autenticação de usuários.
+
 parceiros: CRUD para gerenciar parceiros.
+
 empresas: CRUD para gerenciar empresas.
+
 sobre: Informações sobre o projeto.
 
