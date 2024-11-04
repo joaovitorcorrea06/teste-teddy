@@ -41,7 +41,9 @@ após utilize o comando:
 ## Executando o Projeto
 Para iniciar o projeto, na raiz utilize o comando:
 
-npm start
+- npm start
+
+- O projeto estará rodando em http://localhost:5000
 
 ##  Estrutura do Projeto
 A estrutura do projeto está organizada em microfrontends. Abaixo está uma breve descrição de cada módulo:
