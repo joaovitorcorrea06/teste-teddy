@@ -26,13 +26,17 @@ Certifique-se de ter as seguintes ferramentas instaladas:
 
 ## Instalação
 
-- Clone o repositório:
+Clone o repositório:
 
-git clone https://github.com/joaovitorcorrea06/teste-teddy
+- git clone https://github.com/joaovitorcorrea06/teste-teddy
 
-- Instale as dependências do projeto na raiz com o comando:
+Instale as dependências do projeto na raiz com o comando:
 
-npm install-all
+- npm i
+
+após utilize o comando:
+
+- npm run install-all
 
 ## Executando o Projeto
 Para iniciar o projeto, na raiz utilize o comando:
